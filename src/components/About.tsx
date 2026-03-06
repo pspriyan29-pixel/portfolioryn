@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GraduationCap, Award, MapPin, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 import { Variants } from 'framer-motion';
 
@@ -75,7 +76,15 @@ export default function About() {
 
                                     {/* Photo */}
                                     <div className="w-full aspect-[4/5] rounded-lg overflow-hidden border border-white/10 bg-[#111] mb-5 relative shadow-inner group flex items-center justify-center">
-                                        <img src="/images/profile.jpg" alt="Riyan Perdhana Putra" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                        <Image
+                                            src="/images/profile.jpg"
+                                            alt="Riyan Perdhana Putra"
+                                            width={400}
+                                            height={500}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            priority
+                                            unoptimized={process.env.NODE_ENV === 'development'}
+                                        />
                                         <div className="absolute inset-0 border border-white/10 rounded-lg pointer-events-none" />
                                     </div>
 
